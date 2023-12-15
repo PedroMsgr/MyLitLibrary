@@ -8,9 +8,7 @@ using MylitLibrary.Entities;
 
 namespace MylitLibrary
 {
-    /// <summary>
-    /// Lógica de interacción para LibraryWindow.xaml
-    /// </summary>
+    
     public partial class LibraryWindow : Window
     {
         private ConexionClass _conexion;
@@ -37,7 +35,6 @@ namespace MylitLibrary
                 DetailBookWindow detalleLibroWindow = new DetailBookWindow(libroSeleccionado.IdBook);
                 detalleLibroWindow.Owner = this;
 
-                // Suscribirse al evento Closed de DetailBookWindow
                 detalleLibroWindow.Closed += DetailBookWindow_Closed;
 
                 detalleLibroWindow.ShowDialog();
@@ -83,6 +80,7 @@ namespace MylitLibrary
             }
         }
 
+        // Aplica el filtro de estado a la lista
         private void FiltrerStatus(string filtro)
         {
             switch (filtro)
@@ -102,7 +100,7 @@ namespace MylitLibrary
                 case "Abandonados":
                     lbMyBooks.ItemsSource = MyBooks.Where(book => book.StatusBook == "Abandonado").ToList();
                     break;
-                // Agrega los demás casos según sea necesario
+                
                 case "Favoritos":
                     lbMyBooks.ItemsSource = MyBooks.Where(book => book.Favorite).ToList();
                     break;

@@ -28,7 +28,7 @@ namespace MylitLibrary
             // Autenticar con Google Books API
             booksService = GoogleBooksAuthentication.Authenticate();
             _conexion = new ConexionClass();
-            searchTimer = new System.Timers.Timer(500); // Tiempo en milisegundos
+            searchTimer = new System.Timers.Timer(500);
             searchTimer.Elapsed += OnSearchTimerElapsed;
             DataContext = this;
             if (booksService == null)
@@ -97,7 +97,8 @@ namespace MylitLibrary
 
                 if (volumesList != null && volumesList.Any())
                 {
-                    lblNoResults.Visibility = Visibility.Collapsed; // Ocultar el mensaje si hay resultados
+                    // Mostrar el mensaje si no hay resultados
+                    lblNoResults.Visibility = Visibility.Collapsed;
 
                     foreach (var volume in volumesList)
                     {
@@ -109,7 +110,8 @@ namespace MylitLibrary
                 }
                 else
                 {
-                    lblNoResults.Visibility = Visibility.Visible; // Mostrar el mensaje si no hay resultados
+                    // Mostrar el mensaje si no hay resultados
+                    lblNoResults.Visibility = Visibility.Visible;
                 }
             }
             catch (Exception ex)
@@ -135,6 +137,7 @@ namespace MylitLibrary
 
             };
         }
+
         //Reemplaza múltiples espacios en blanco autor
         private string CleanAuthors(IList<string> authorsList)
         {
@@ -171,7 +174,7 @@ namespace MylitLibrary
             }
         }
 
-
+        //Temporizador para las busquedas del textbox
         private void OnSearchTimerElapsed(object sender, System.Timers.ElapsedEventArgs e)
         {
             Dispatcher.Invoke(async () =>
@@ -225,7 +228,7 @@ namespace MylitLibrary
 
         private void btSesion_Click(object sender, RoutedEventArgs e)
         {
-            ToggleMenu(); // Cierra el menú lateral
+            ToggleMenu(); // Abre-Cierra el menú lateral
             if (SesionClass.CurrentUserId.HasValue && SesionClass.CurrentUserId.Value > 0)
             {
                 
@@ -241,7 +244,7 @@ namespace MylitLibrary
 
         private void btMyLibrary_Click(object sender, RoutedEventArgs e)
         {
-            // Crear y mostrar la ventana de LibraryWindow
+            // Crear y mostrar la ventana de LibraryWindow y mostrar un Estado en especifico
             LibraryWindow libraryWindow = new LibraryWindow("Todos");
             libraryWindow.Owner = this;
             libraryWindow.ShowDialog();
@@ -282,10 +285,11 @@ namespace MylitLibrary
             libraryWindow.ShowDialog();
         }
 
+        // Muestra la ventana de Acerca de
         private void btAbout_Click(object sender, RoutedEventArgs e)
         {
             AboutWindow aboutWindow = new AboutWindow();
-            aboutWindow.ShowDialog(); // Muestra la ventana de Acerca de
+            aboutWindow.ShowDialog(); 
         }
     }
 }

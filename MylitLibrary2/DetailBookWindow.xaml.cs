@@ -114,7 +114,7 @@ namespace MylitLibrary
                     cbkFavorite.IsChecked = bookData.Favorite;
                     txtComents.Text = bookData.Coments;
 
-                    // Verificar si NoteOfBook tiene un valor antes de intentar acceder a él
+                    // Verifica si NoteOfBook tiene un valor antes de intentar acceder a él
                     if (bookData.NoteOfBook.HasValue)
                     {
                         int noteOfBookValue = bookData.NoteOfBook.Value;
@@ -130,7 +130,7 @@ namespace MylitLibrary
 
         private async void btSaveBook_Click(object sender, RoutedEventArgs e)
         {
-            // Asigna los valores obtenidos de la interfaz de usuario
+            // Asigna los valores de la interfaz de usuario
             string status = (cbStatusBook.SelectedItem as ComboBoxItem)?.Content as string;
             bool boolFavorite = cbkFavorite.IsChecked ?? false;
             string coments = txtComents.Text;
@@ -144,14 +144,14 @@ namespace MylitLibrary
 
             if (SesionClass.CurrentUserId.HasValue)
             {
-                // Obtén los detalles del libro de Google Books API
+                // detalles del libro de Google Books API
                 var bookDetails = await _booksService.Volumes.Get(_bookId).ExecuteAsync();
                 string coverUrl = bookDetails.VolumeInfo.ImageLinks?.Thumbnail ?? "URL por defecto si no hay imagen";
 
                 bool existeLibro = await _conexion.ExistsBook(SesionClass.CurrentUserId.Value, _bookId);
                 if (existeLibro)
                 {
-                    // Actualiza el libro en la base de datos con la nueva información
+                    // Actualiza el libro con la nueva información
                     await _conexion.UpdateBook(SesionClass.CurrentUserId.Value, _bookId, tbTitle.Text, tbAuthor.Text, tbDate.Text, coverUrl, status, boolFavorite, coments, noteBook);
                     MessageBox.Show("Información del libro actualizada con éxito.");
                 }

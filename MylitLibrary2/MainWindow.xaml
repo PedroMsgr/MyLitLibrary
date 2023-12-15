@@ -29,7 +29,7 @@
             </StackPanel>
         </materialDesign:DrawerHost.LeftDrawerContent>
 
-        <!-- Contenido Principal -->
+
         <Grid>
             <Grid.RowDefinitions>
                 <RowDefinition Height="Auto"/>
@@ -37,7 +37,7 @@
                 <RowDefinition Height="7*"/>
             </Grid.RowDefinitions>
             
-            <!-- Barra de Herramientas en la parte superior -->
+
             <ToolBar Grid.Row="0" HorizontalAlignment="Stretch" Background="#133819" Opacity="0.6">
                 <DockPanel HorizontalAlignment="Stretch">
                     <Button x:Name="btToggleMenu" Content="Menu" DockPanel.Dock="Left" Margin="10" VerticalAlignment="Center" Click="btToggleMenu_Click"/>
@@ -54,7 +54,7 @@
                 </StackPanel>
             </Border>
 
-            <!-- Contenido del Grid Principal -->
+
             <Frame x:Name="frame" Grid.Row="2"/>
 
             <Label x:Name="lblNoResults" Content="No hay libros con ese título" Grid.Row="2"

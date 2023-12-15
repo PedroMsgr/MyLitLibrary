@@ -5,7 +5,6 @@
         Icon="Resources/MyLitICON.ico"
         Style="{StaticResource WindowStyle}">
 
-    <!-- Contenedor principal -->
     <DockPanel>
 
         <!-- Menú de secciones en la parte superior -->
@@ -19,12 +18,10 @@
             <!--<MenuItem x:Name="btList" Header="Listas"/>-->
         </Menu>
         <Grid Grid.Row="2" Margin="190,30,190,50">
-            <!-- ListBox para mostrar los libros con un borde -->
             <Border BorderBrush="#006400" BorderThickness="1" CornerRadius="10" Padding="5">
                 <ListBox x:Name="lbMyBooks" ItemsSource="{Binding MyBooks}" SelectionMode="Single"
                          Style="{StaticResource BooksListBoxStyle}" HorizontalAlignment="Stretch" 
                          MouseDoubleClick="lbMyBooks_MouseDoubleClick">
-                    <!-- Estilos para el ListBox y los elementos seleccionados -->
                     <ListBox.ItemTemplate>
                         <DataTemplate>
                             <Border Background="White" BorderBrush="Gray" BorderThickness="1" CornerRadius="5">
@@ -33,7 +30,7 @@
                                         <ColumnDefinition Width="Auto"/>
                                         <!-- Para la imagen -->
                                         <ColumnDefinition Width="*"/>
-                                        <!-- Para el contenido de texto que se expandirá -->
+
                                     </Grid.ColumnDefinitions>
                                     <!-- Imagen de la portada del libro -->
                                     <Image Grid.Column="0" Source="{Binding CoverUrl}" Width="100" Height="150" Margin="10"/>
@@ -43,7 +40,6 @@
                                         <TextBlock Text="{Binding Author}" Foreground="Black" FontStyle="Italic" FontSize="14"/>
                                         <TextBlock Text="{Binding StatusBook}" Foreground="Black" FontStyle="Italic" FontSize="14"/>
                                         <TextBlock Text="{Binding DatePublicBook}" Foreground="Black" FontSize="12"/>
-                                        <!-- Puedes agregar más detalles aquí si es necesario -->
                                     </StackPanel>
                                 </Grid>
                             </Border>

@@ -14,7 +14,6 @@
         <StackPanel Grid.Row="1" Margin="10">
             <TextBlock Text="Desarrollado por: Pedro Meseguer Gelardo" Margin="5"/>
             <TextBlock Text="Versión: 1.0.0" Margin="5"/>
-            <!-- Aquí puedes añadir más información relevante sobre tu aplicación -->
         </StackPanel>
         <Button x:Name="btClose" Grid.Row="2" Content="Cerrar" HorizontalAlignment="Right" Margin="5" Click="btClose_Click"/>
     </Grid>
