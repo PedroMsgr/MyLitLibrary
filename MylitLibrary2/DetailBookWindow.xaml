@@ -1,0 +1,99 @@
+﻿<Window x:Class="MylitLibrary.DetailBookWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Icon="Resources/MyLitICON.ico"
+        Title="Detalle del Libro" Height="650" Width="800"
+        Style="{StaticResource WindowStyle}">
+
+
+    <ScrollViewer Margin="10">
+        <!-- ScrollViewer para el contenido general -->
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+
+            <!-- Sección de portada y detalles -->
+            <Grid Grid.Row="0" Margin="10" Background="#FFFFFF" Opacity="0.6">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+
+                <!-- Imagen de la portada -->
+                <Image x:Name="imgPortada" Width="200" Height="300" Margin="10" Style="{StaticResource BookCoverImageStyle}"/>
+
+                <!-- Título, autor y descripción -->
+                <StackPanel Grid.Column="1" Margin="10">
+                    <TextBlock x:Name="tbTitle" Text="Título del Libro" Style="{StaticResource BookTitleTextStyle}"/>
+                    <TextBlock x:Name="tbAuthor" Text="Autor del Libro" Style="{StaticResource BookAuthorTextStyle}"/>
+                    <ScrollViewer VerticalScrollBarVisibility="Auto" Height="190" >
+                        <TextBlock x:Name="tbDescription" Text="Descripción larga del libro..." Style="{StaticResource BookDescriptionTextStyle}"/>
+                    </ScrollViewer>
+                </StackPanel>
+            </Grid>
+
+            <!-- Sección de información del usuario -->
+            <StackPanel Grid.Row="1" Background="#FFFFFF" Opacity="0.6" Orientation="Horizontal" Margin="10" HorizontalAlignment="Stretch">
+                <ComboBox x:Name="cbStatusBook" Width="200" Style="{StaticResource ComboBoxStyle}">
+                    <ComboBoxItem Content="Leyendo"/>
+                    <ComboBoxItem Content="Completado"/>
+                    <ComboBoxItem Content="Pendiente"/>
+                    <ComboBoxItem Content="Abandonado"/>
+                    <ComboBoxItem Content="Sin añadir" IsSelected="True" />
+                </ComboBox>
+                <TextBox x:Name="txtComents" Width="200" Margin="10" Style="{StaticResource CommentTextBoxStyle}"/>
+                <CheckBox x:Name="cbkFavorite" Style="{StaticResource FavoriteCheckBoxStyle}"/>
+                <TextBlock Text="Nota" Margin="10,10,3,10" FontSize="14"/>
+                <ComboBox x:Name="cbNote" Width="50" Margin="10" Style="{StaticResource RatingComboBoxStyle}">
+                    <ComboBoxItem Content="0"/>
+                    <ComboBoxItem Content="1"/>
+                    <ComboBoxItem Content="2"/>
+                    <ComboBoxItem Content="3"/>
+                    <ComboBoxItem Content="4"/>
+                    <ComboBoxItem Content="5"/>
+                    <ComboBoxItem Content="6"/>
+                    <ComboBoxItem Content="7"/>
+                    <ComboBoxItem Content="8"/>
+                    <ComboBoxItem Content="9"/>
+                    <ComboBoxItem Content="10"/>
+                </ComboBox>
+            </StackPanel>
+
+            <!-- Sección de detalles adicionales -->
+            <StackPanel Grid.Row="2">
+                <Expander Header="Más Detalles" Background="#FFFFFF" Opacity="0.6" FontWeight="Bold" IsExpanded="True">
+                    <StackPanel Margin="5">
+                        <TextBlock FontWeight="Bold" FontSize="16" Text="Fecha de Publicación:"/>
+                        <TextBlock x:Name="tbDate" FontSize="14" Margin="0,0,0,10"/>
+
+                        <TextBlock FontWeight="Bold" FontSize="16" Text="Páginas:"/>
+                        <TextBlock x:Name="tbPage" FontSize="14" Margin="0,0,0,10"/>
+
+                        <TextBlock FontWeight="Bold" FontSize="16" Text="Tipo de Impresión:"/>
+                        <TextBlock x:Name="tbImpression" FontSize="14" Margin="0,0,0,10"/>
+
+                        <TextBlock FontWeight="Bold" FontSize="16" Text="Categoría:"/>
+                        <TextBlock x:Name="tbCategories" FontSize="14" Margin="0,0,0,10"/>
+
+                        <TextBlock FontWeight="Bold" FontSize="16" Text="Idioma:"/>
+                        <TextBlock x:Name="tbLanguage" FontSize="14" Margin="0,0,0,10"/>
+                    </StackPanel>
+                </Expander>
+            </StackPanel>
+
+            <!-- Botones de acción en la parte inferior -->
+            <StackPanel Style="{StaticResource ButtonsStackPanelStyle}" Grid.Row="3">
+                <Button x:Name="btDelete" Content="Borrar" Style="{StaticResource ActionButtonStyle}" Click="btDelete_Click"/>
+                <Button x:Name="btSaveBook" Content="Guardar" Style="{StaticResource ActionButtonStyle}" Click="btSaveBook_Click"/>
+                <Button x:Name="btCancel" Content="Cerrar" Style="{StaticResource ActionButtonStyle}" Click="btCancel_Click"/>
+            </StackPanel>
+        </Grid>
+    </ScrollViewer>
+</Window>
+
+
+

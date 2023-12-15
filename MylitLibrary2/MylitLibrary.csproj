@@ -1,0 +1,57 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net8.0-windows</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <UseWPF>true</UseWPF>
+	  <ApplicationIcon>Resources\MyLitICON.ico</ApplicationIcon>
+	  <Platforms>AnyCPU;x64;ARM64;x86</Platforms>
+	  <Configurations>Debug;Release;Ejecutable</Configurations>
+
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="Resources\FondoMain.png" />
+    <None Remove="Resources\MyLitICON.ico" />
+    <None Remove="Resources\mylitLogo.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Include="Resources\MyLitICON.ico" />
+    <Content Include="Resources\PortadaGenerica.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+	
+  <ItemGroup>
+    <PackageReference Include="Azure.Core" Version="1.36.0" />
+    <PackageReference Include="Azure.Identity" Version="1.10.4" />
+    <PackageReference Include="BCrypt.Net-Next" Version="4.0.3" />
+    <PackageReference Include="EntityFramework" Version="6.4.4" />
+    <PackageReference Include="Google.Apis" Version="1.64.0" />
+    <PackageReference Include="Google.Apis.Auth" Version="1.64.0" />
+    <PackageReference Include="Google.Apis.Books.v1" Version="1.64.0.2955" />
+    <PackageReference Include="Google.Apis.Core" Version="1.64.0" />
+    <PackageReference Include="MahApps.Metro.IconPacks.Material" Version="4.11.0" />
+    <PackageReference Include="MaterialDesignThemes" Version="4.9.0" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="8.0.0" />
+    <PackageReference Include="Microsoft.Web.WebView2" Version="1.0.2151.40" />
+    <PackageReference Include="System.Data.SqlClient" Version="4.8.5" />
+    <PackageReference Include="System.Memory.Data" Version="8.0.0" />
+    <PackageReference Include="System.Text.Json" Version="8.0.0" />
+  </ItemGroup>
+	
+  <ItemGroup>
+    <Resource Include="Resources\FondoMain.png" />
+    <Resource Include="Resources\MyLitICON.ico" />
+    <Resource Include="Resources\mylitLogo.png" />
+  </ItemGroup>
+	
+  <ItemGroup>
+    <Folder Include="Properties\" />
+    <Folder Include="Utilities\" />
+  </ItemGroup>
+
+</Project>

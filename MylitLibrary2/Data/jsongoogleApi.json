@@ -1,0 +1,11 @@
+{
+  "installed": {
+    "client_id": "170147608996-gkom9ihflpbbgv9b8m0f0tvg15eo7fjb.apps.googleusercontent.com",
+    "project_id": "mylitlibrary12345",
+    "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+    "token_uri": "https://oauth2.googleapis.com/token",
+    "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+    "client_secret": "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",
+    "redirect_uris": [ "http://localhost" ]
+  }
+}
